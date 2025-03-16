@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script>
+        function loginUser(event) {
+            event.preventDefault(); // Prevent form submission
+    
+            let formData = new FormData(document.getElementById("loginForm"));
+    
+            fetch("{% url 'login' %}", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest",
+                    "X-CSRFToken": document.querySelector('[name=csrfmiddlewaretoken]').value
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Response Data:", data); // Debugging
+                
+                alert(data.message); // Show success or error message
+                
+                if (data.success) {
+                    window.location.href = data.redirect_url; // Redirect after pressing OK
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("❌ An error occurred. Please try again.");
+            });
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+</head>
+<body>
+    <header>
+        <h1>Machine Learning-Based Design Patterns Prediction</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">MLDPP</div>
+                <ul class="nav-links">
+                    <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a></li>
+                    
+            </ul>
+        </div>
+    </nav>
+    <div class="login-container">
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        
+        <label>Username:</label>
+        <input type="text" name="username" required><br>
+    
+        <label>Password:</label>
+        <input type="password" name="password" required><br>
+        {% if messages %}
+        {% for message in messages %}
+            <script>
+                alert("{{ message }}");
+            </script>
+        {% endfor %}
+    {% endif %}
+    
+        <button type="submit">Login</button>
+        <P>Don't Have an account?  <a href="{% url 'register' %}">Register</a> </P>
+    </form>
+
+
+    </div>               
+         
+    <script>
+        if (performance.navigation.type === 2) { 
+            location.reload();  // Force reload when user presses back button
+        }
+    </script>
+    
+</body>
+</html>

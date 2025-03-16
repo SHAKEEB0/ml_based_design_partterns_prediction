@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Price Prediction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        
+        form {
+            background: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+       
+        label {
+            display: block;
+            text-align: left;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+       
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+       
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            align-items: center;
+        }
+       
+        button:hover {
+            background-color: #218838;
+        }
+       
+        h2 {
+            color: #333;
+        }
+       
+
+    </style>
+</head>
+<body>
+    <header>
+        Machine Learning-Based Design Patterns Prediction
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">MLDPP</div>
+        <ul class="nav-links">
+             <a href="{% url 'home' %}" ><i class="fas fa-home"></i>Home</a>
+            <a href="{% url 'main' %}" ><i class="fas fa-services"></i>Dashboard</a>
+            <a href="{% url 'view_data' %}" ><i class="fas fa-contact"></i>View Data</a>
+            <a href="{% url 'train' %}" ><i class="fas fa-contact"></i>Train</a>
+
+    </ul>
+    </div> 
+    </nav>
+    <h2>Enter Car Details</h2>
+    <form action="/predict/" method="post">
+        {% csrf_token %}
+       
+        <label>Enter Year:</label>
+        <input type="number" name="year" required>
+
+
+        <label>Enter Kilometers Driven:</label>
+        <input type="number" name="km" required>
+
+
+        <label>Enter Fuel Type (Diesel: 0, Petrol: 1, LPG: 2, CNG: 3):</label>
+        <input type="number" name="fuel" min="0" max="3" required>
+
+
+        <label>Enter Seller Type (Individual: 0, Dealer: 1, Trustmark Dealer: 2):</label>
+        <input type="number" name="seller_type" min="0" max="2" required>
+
+
+        <label>Enter Transmission Type (Manual: 0, Automatic: 1):</label>
+        <input type="number" name="transmission" min="0" max="1" required>
+
+
+        <label>Enter Owner Type (First Owner: 0, Second Owner: 1, Third Owner: 2, Fourth & Above Owner: 3, Test Drive Car: 4):</label>
+        <input type="number" name="owner" min="0" max="4" required>
+
+
+        <label>Enter Mileage (in kmpl):</label>
+        <input type="number" step="0.1" name="mileage" required>
+
+
+        <label>Enter Engine Capacity (in cc):</label>
+        <input type="number" name="engine" required>
+
+
+        <label>Enter Max Power (in bhp):</label>
+        <input type="number" step="0.1" name="max_power" required>
+
+
+        <label>Enter Number of Seats:</label>
+        <input type="number" name="seats" required>
+
+
+        <button type="submit">Predict</button>
+    </form>
+
+
+    {% if prediction %}
+        <h2>Predicted Car Price: ₹{{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Design Patterns | About</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+       
+        
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: #2c3e50;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+       
+        .cta-button {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ML Design Patterns Prediction</h1>
+    </header>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">MLDPP</div>
+        <ul class="nav-links">
+             <a href="{% url 'home' %}" ><i class="fas fa-home"></i>Home</a>
+            <a href="{% url 'services' %}" ><i class="fas fa-services"></i>Services</a>
+            <a href="{% url 'contact' %}" ><i class="fas fa-contact"></i>Contact Us</a>
+      </ul>
+    </div> 
+    </nav>
+    <!-- About Page Content -->
+    <section id="about" class="hero">
+        <div class="container">
+            <h1>Innovating Design, Powered by AI</h1>
+            <p>Bridging machine learning and software design principles</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="section">
+            <h2>Who We Are</h2>
+            <p>We are a team of machine learning experts, software engineers, and design pattern enthusiasts united by a shared vision: to eliminate guesswork in software design...</p>
+            
+            <h2>Why We Exist</h2>
+            <p>Software development is evolving rapidly, yet many teams struggle with inefficiencies—redundant code, scalability bottlenecks, and missed deadlines...</p>
+            
+            <h2>What Sets Us Apart</h2>
+            <ul>
+                <li><strong>Precision:</strong> Our algorithms learn from millions of codebases...</li>
+                <li><strong>Speed:</strong> Reduce design-phase time by up to 60%...</li>
+                <li><strong>Innovation:</strong> Stay ahead of trends with adaptive models...</li>
+            </ul>
+        </section>
+
+        <!-- Services Page Content -->
+        <section id="services" class="section">
+            <h2>Our Services</h2>
+            <div class="service">
+                <h3>Custom Design Pattern Recommendations</h3>
+                <p>Leverage our ML models to receive personalized suggestions...</p>
+            </div>
+            
+            <div class="service">
+                <h3>Legacy Code Modernization</h3>
+                <p>Breathe new life into outdated systems...</p>
+            </div>
+
+            <!-- Add other services similarly -->
+            
+            <h2>Why Choose Us?</h2>
+            <ul>
+                <li><strong>Expertise:</strong> Decades of combined experience...</li>
+                <li><strong>Data-Driven Results:</strong> Models trained on diverse industries...</li>
+                <li><strong>Collaboration First:</strong> We work alongside your team...</li>
+            </ul>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <h2>Let's Build Smarter</h2>
+            <p>Ready to redefine your design process?</p>
+            <a href="mailto:contact@yourcompany.com" class="cta-button">Get Started</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 [Your Company]. All rights reserved.</p>
+    </footer>
+</body>
+</html>

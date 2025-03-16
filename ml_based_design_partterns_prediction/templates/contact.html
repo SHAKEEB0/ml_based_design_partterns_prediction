@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | ML Design Patterns</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+       
+        .contact-hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: #2c3e50;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #34495e;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        .cta-button {
+            background: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #2980b9;
+        }
+
+        .contact-info {
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .contact-details {
+            margin: 2rem 0;
+        }
+
+        .contact-details div {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 4px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #2c3e50;
+            color: white;
+        }
+
+        .map-container {
+            margin: 2rem 0;
+            height: 300px;
+            background: #eee;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Machine Learning-Based Design Patterns Prediction </h1>
+     </header>
+ 
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">MLDPP</div>
+        <ul class="nav-links">
+             <a href="{% url 'home' %}" ><i class="fas fa-home"></i>Home</a>
+            <a href="{% url 'services' %}" ><i class="fas fa-services"></i>Services</a>
+            <a href="{% url 'about' %}" ><i class="fas fa-contact"></i>About</a>
+      </ul>
+    </div> 
+    </nav>
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p>Let's discuss how AI-powered design patterns can transform your workflow</p>
+        </div>
+    </section>
+
+    <!-- Main Contact Content -->
+    <main class="container">
+        <div class="contact-wrapper">
+            <!-- Contact Form -->
+            <section class="contact-form">
+                <h2>Send Us a Message</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject">
+                            <option value="general">General Inquiry</option>
+                            <option value="sales">Sales Questions</option>
+                            <option value="support">Technical Support</option>
+                            <option value="partnership">Partnership Opportunities</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="cta-button">Send Message</button>
+                </form>
+            </section>
+
+            <!-- Contact Info -->
+            <section class="contact-info">
+                <h2>Contact Information</h2>
+                <div class="contact-details">
+                    <div>
+                        <h3>📍 Headquarters</h3>
+                        <p>[Your Company Address]<br>
+                        [City, State, ZIP Code]</p>
+                    </div>
+
+                    <div>
+                        <h3>📞 Phone</h3>
+                        <p>Sales: +1 (555) 123-4567<br>
+                        Support: +1 (555) 765-4321</p>
+                    </div>
+
+                    <div>
+                        <h3>✉️ Email</h3>
+                        <p>General: info@yourcompany.com<br>
+                        Support: support@yourcompany.com</p>
+                    </div>
+                </div>
+
+                <div class="map-container">
+                    <!-- Embed your Google Map here -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d317715.7119169245!2d-0.38178250546392334!3d51.52873519656658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C%20UK!5e0!3m2!1sen!2sus!4v1689878816787!5m2!1sen!2sus" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                    </iframe>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 [Your Company Name]. All rights reserved.<br>
+        ML Design Patterns Prediction Platform</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Thank you for your message! We will respond within 24 hours.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

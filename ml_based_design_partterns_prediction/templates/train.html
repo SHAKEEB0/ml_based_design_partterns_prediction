@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Model</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+
+        .message {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+.container {
+    text-align: center;
+}
+
+.message {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: white;
+    background-color: #007bff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+
+
+    </style>
+</head>
+<body>
+
+    <header>
+       <h1> Machine Learning-Based Design Patterns Prediction </h1>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">MLDPP</div>
+        <ul class="nav-links">
+            <a href="{% url 'home' %}" ><i class="fas fa-home"></i>Home</a>
+            <a href="{% url 'upload' %}"><i class="fas fa-upload"></i>Upload Data</a>
+            <a href="{% url 'view_data' %}"><i class="fas fa-"></i>View Data</a>         
+            <a href="{% url 'predict' %}"><i class="fas fa-"></i>Prediction</a>
+            <a href="{% url 'main' %}"><i class="fas fa-dashboard"></i>Dashboard</a>
+      </ul>
+    </div> 
+    </nav>
+    <div class="container">
+        <h2 class="message">{{ message }}</h2>
+        <a href="{% url 'predict' %}" class="btn">🔮 Make Prediction</a>
+    </div>
+</body>
+</html>

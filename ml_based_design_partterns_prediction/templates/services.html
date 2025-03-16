@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | ML Design Patterns | Your Company</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+       
+          
+        .hero-services {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: #3498db;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .service-card {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-left: 4px solid #3498db;
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+        h2 { font-size: 2rem; margin-bottom: 1rem; color: #2c3e50; }
+        h3 { font-size: 1.3rem; margin-bottom: 0.8rem; color: #34495e; }
+        p { margin-bottom: 1rem; color: #666; }
+
+        .cta-button {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #2c3e50;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+    
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Machine Learning-Based Design Patterns Prediction </h1>
+     </header>
+ 
+    <!-- Navigation -->
+        <nav>
+        <div class="nav-container">
+            <div class="logo">MLDPP</div>
+        <ul class="nav-links">
+             <a href="{% url 'home' %}" ><i class="fas fa-home"></i>Home</a>
+            <a href="{% url 'about' %}" ><i class="fas fa-services"></i>About</a>
+            <a href="{% url 'contact' %}" ><i class="fas fa-contact"></i>Contact Us</a>
+      </ul>
+    </div> 
+    </nav>
+
+    <!-- Services Hero Section -->
+    <section class="hero-services">
+        <div class="container">
+            <h1>Machine Learning-Driven Design Solutions</h1>
+            <p>Transform your development workflow with AI-powered pattern recommendations</p>
+        </div>
+    </section>
+
+    <!-- Main Services Content -->
+    <main class="container">
+        <section>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Custom Design Pattern Recommendations</h3>
+                    <p>ML-powered suggestions tailored to your project's requirements, architecture, and scalability needs.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Legacy Code Modernization</h3>
+                    <p>AI analysis of existing codebases with modernization roadmaps and pattern migration strategies.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Real-Time Collaboration Tools</h3>
+                    <p>Integrated IDE plugins with instant pattern suggestions and refactoring assistance.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Performance Optimization Audits</h3>
+                    <p>Comprehensive architecture reviews with ML-identified optimization opportunities.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Training & Workshops</h3>
+                    <p>Hands-on sessions on implementing ML-driven design patterns in modern systems.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Enterprise Solutions</h3>
+                    <p>Custom API integrations and white-label platforms for large-scale deployments.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="service-card">
+            <h2>Why Choose Our Services?</h2>
+            <ul>
+                <li><strong>Industry-Proven Models:</strong> Trained on 50M+ code repositories across 15 domains</li>
+                <li><strong>Architecture-Agnostic:</strong> Solutions for monoliths, microservices, and serverless systems</li>
+                <li><strong>Security-First:</strong> All recommendations include vulnerability risk assessments</li>
+                <li><strong>ROI Guarantee:</strong> 95% of clients report 40%+ efficiency gains within 3 months</li>
+            </ul>
+        </section>
+
+        <!-- Contact CTA -->
+        <section id="contact" class="service-card" style="text-align: center;">
+            <h2>Ready to Optimize Your Workflow?</h2>
+            <p>Schedule a free consultation with our AI architecture experts</p>
+            <a href="mailto:contact@yourcompany.com" class="cta-button">Get Started Now</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 [Your Company Name]. All rights reserved.<br>
+        ML Design Patterns Prediction Platform</p>
+    </footer>
+</body>
+</html>

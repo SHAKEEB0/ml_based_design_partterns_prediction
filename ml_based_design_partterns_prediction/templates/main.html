@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Design Patterns | Main Hub</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Using same CSS as home.html with additions -->
+    <style>
+        
+
+      
+        /* Modified Button Grid */
+        .nav-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 30px auto;
+        }
+
+        .nav-button {
+            padding: 20px 30px;
+            background: linear-gradient(135deg, #004aad, #0077ff);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #0077ff, #004aad);
+        }
+
+       
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-buttons {
+                grid-template-columns: 1fr;
+                padding: 20px;
+                margin: 30px auto;
+            }
+            
+            .nav-button {
+                min-height: 80px;
+                font-size: 16px;
+            }
+        }
+
+        /* Logout Button Styling */
+.logout-btn {
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 15px 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logout-btn:hover {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* New Additions */
+.dashboard-header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #004aad, #0077ff);
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .info-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #f0f8ff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .stats-panel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+            padding: 25px;
+            background: #e3f2fd;
+            border-radius: 10px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stat-value {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #004aad;
+            margin: 10px 0;
+        }
+        body {
+    background: linear-gradient(-45deg, #004aad, #0077ff, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    min-height: 100vh;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+       
+    </style>
+</head>
+<body>
+    <!-- Same Header -->
+    <div class="dashboard-header">
+        <h1>ML Design Patterns Prediction System</h1>
+        <p>Intelligent Design Pattern Recommendations Powered by Machine Learning</p>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="{% url 'home' %}" class="nav-button">HOME</a>
+        <a href="{% url 'upload' %}" class="nav-button">UPLOAD DATASET</a>
+        <a href="{% url 'view_data' %}" class="nav-button">VIEW DATASET</a>
+        <a href="{% url 'train' %}" class="nav-button">TRAIN AND TEST DATASET</a>
+        <a href="#" class="nav-button">Accuracy Graph Of Models</a>
+        <a href="{% url 'predict' %}" class="nav-button">Prediction</a>
+        <a href="{% url 'admin_dashboard' %}" class="nav-button admin-btn">Admin Dashboard</a>
+        <div class="user-auth">
+            {% if user.is_authenticated %}
+                <li>
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="logout-btn">Logout</button>
+                    </form>
+                </li>
+            {% else %}
+                <li><a href="{% url 'login' %}" class="login-btn">Login</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+            {% endif %}
+        </div>
+    </div>
+    <!-- System Overview Section -->
+    <div class="info-section">
+        <h2>Welcome to Your ML Design Dashboard</h2>
+        <p>This intelligent system helps software architects and developers:</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Pattern Prediction</h3>
+                <p>Get AI-powered recommendations for optimal design patterns based on your project parameters.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Performance Analytics</h3>
+                <p>Analyze historical data and model performance metrics through interactive visualizations.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Model Management</h3>
+                <p>Train new models, validate predictions, and manage multiple model versions effectively.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Stats Panel -->
+    <div class="info-section">
+        <h2>System Statistics</h2>
+        <div class="stats-panel">
+            <div class="stat-item">
+                <div class="stat-value">{% if uploaded_projects %}{{ uploaded_projects }}{% else %}0{% endif %}</div>
+                <div class="stat-label">Projects Analyzed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">{% if trained_models %}{{ trained_models }}{% else %}0{% endif %}</div>
+                <div class="stat-label">Active Models</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">{% if predictions_made %}{{ predictions_made }}{% else %}0{% endif %}</div>
+                <div class="stat-label">Predictions Generated</div>
+            </div>
+        </div>
+    </div>
+    <!-- Enhanced Navigation Grid -->
+   
+    <div class="info-section">
+        <h2>Recent Activities</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Last Prediction</h3>
+                <p>{% if last_prediction %}{{ last_prediction }}{% else %}No predictions yet{% endif %}</p>
+                <small>Pattern: {% if last_pattern %}{{ last_pattern }}{% endif %}</small>
+            </div>
+            <div class="feature-card">
+                <h3>Model Accuracy</h3>
+                <p>Current Best Model: {% if best_model %}{{ best_model }}{% else %}N/A{% endif %}</p>
+                <p>Accuracy: {% if model_accuracy %}{{ model_accuracy }}%{% endif %}</p>
+            </div>
+            <div class="feature-card">
+                <h3>System Health</h3>
+                <p>Storage: {% if storage_used %}{{ storage_used }}{% else %}0{% endif %}MB used</p>
+                <p>Active Users: {% if active_users %}{{ active_users }}{% else %}1{% endif %}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Message System -->
+    {% if messages %}
+        {% for message in messages %}
+            <script>
+                alert('{{ message }}');
+            </script>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Same Footer -->
+
+</body>
+</html>

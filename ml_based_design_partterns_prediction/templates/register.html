@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+       <h1>Machine Learning-Based Design Patterns Prediction </h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">MLDPP</div>
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a></li>
+        </ul>
+        </div>
+    </nav>
+<br><br>
+    <!-- Login Form -->
+    <div class="login-container">
+        <h2>Register</h2>
+
+        <form action="{% url 'register' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder=" ENTER USERNAME" required>
+            <input type="text" name="name" placeholder="ENTER FULL NAME" required>
+            <input type="phone" name="phone" placeholder="ENTER A PHONE NUMBER" required>
+            <input type="password" name="password" placeholder="ENTER PASSWORD" required>
+            <input type="email" name="email" placeholder="ENTER EMAIL " required>
+
+            <button type="submit">REGISTER</button>
+            <p>Already have an account?  <a href="{% url 'login' %}">Login</a> </p>
+        </form>
+    </div>
+</body>
+</html>
+{% if messages %}
+    <script>
+        {% for message in messages %}
+            alert("{{ message }}");
+        {% endfor %}
+    </script>
+{% endif %}
